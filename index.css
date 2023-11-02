@@ -21,7 +21,7 @@
 		flex-direction: row;
 	}
 	
-	.reading, .finished, .plan_to_read, .dropped {
+	.reading, .finished, .plan_to_read, .on_hold {
 		border-right: 2px solid #cdd6f4;
 		padding-right: 10px;
 	}
@@ -36,7 +36,6 @@
 	}
 
 	body {
-		width: 200%;
 	}
 
 	.container {
@@ -134,7 +133,6 @@ img {
 
 .container {
 	display: flex;
-	flex-direction: row;
 	margin-left: 10px;
 	margin-right: 10px;
 	height: 100%;
