@@ -21,7 +21,7 @@
 		flex-direction: row;
 	}
 	
-	.reading, .finished, .plan_to_read, .on_hold {
+	.reading, .finished, .dropped, .on_hold {
 		border-right: 2px solid #cdd6f4;
 		padding-right: 10px;
 	}
