@@ -115,11 +115,11 @@ main() {
 	echo -e "$color2 Did you read any manga today you$color1 baka$color2 ?!"
 	echo -e "$color1 Anywhay, what would you want to do today$color2 baka onii-chan$color1?"
 	echo " "
-	echo -e "$color1 [r]$color2 Reading $(echo $list_reading | wc -l)"
-	echo -e "$color2 [f]$color1 Finished $(echo $list_finished | wc -l)"
-	echo -e "$color1 [p]$color2 Plan to read $(echo $list_plan_to_read | wc -l)"
-	echo -e "$color2 [d]$color1 Dropped $(echo $list_dropped | wc -l)"
-	echo -e "$color1 [h]$color2 On hold $(echo $list_on_hold | wc -l)"
+	echo -e "$color1 [r]$color2 Reading $(echo $count_reading)"
+	echo -e "$color2 [f]$color1 Finished $(echo $count_finished)"
+	echo -e "$color1 [p]$color2 Plan to read $(echo $count_plan_to_read)"
+	echo -e "$color2 [d]$color1 Dropped $(echo $count_dropped)"
+	echo -e "$color1 [h]$color2 On hold $(echo $count_on_hold)"
 	echo -e "$color2 [a]$color1 Add new manga"
 	echo -e "$color1 [s]$color2 Settings"
 	echo -e "$color2 [t]$color1 Stats"
@@ -249,10 +249,15 @@ add_new() {
 
 lists(){
 	list_reading=$(awk -F'|' '$2~/^r/' $mangas | awk -v color2="$color2" -v color1="$color1" -v cv="$cv" -F'|' '{print color2$1color1": "cv": "color2$3"/"$4color1" rating: "color2$5"★ "}')
+	count_reading=$(awk -F'|' '$2~/^r/' $mangas | wc -l)
 	list_finished=$(awk -F'|' '$2~/^f/' $mangas | awk -v color2="$color2" -v color1="$color1" -v cv="$cv" -F'|' '{print color2$1color1": "cv"s: "color2$4color1" rating: "color2$5"★ "}')
+	count_finished=$(awk -F'|' '$2~/^f/' $mangas | wc -l)
 	list_dropped=$(awk -F'|' '$2~/^d/' $mangas | awk -v color2="$color2" -v color1="$color1" -v cv="$cv" -F'|' '{print color2$1color1": "cv": "color2$3"/"$4color1" rating: "color2$5"★ "}')
+	count_dropped=$(awk -F'|' '$2~/^d/' $mangas | wc -l)
 	list_plan_to_read=$(awk -F'|' '$2~/^p/' $mangas | awk -v color2="$color2" -v color1="$color1" -v cv="$cv" -F'|' '{print color2$1color1": "cv"s: "color2$4color1}')
+	count_plan_to_read=$(awk -F'|' '$2~/^p/' $mangas | wc -l)
 	list_on_hold=$(awk -F'|' '$2~/^h/' $mangas | awk -v color2="$color2" -v color1="$color1" -v cv="$cv" -F'|' '{print color2$1color1": "cv": "color2$3"/"$4color1" rating: "color2$5"★ "}')
+	count_on_hold=$(awk -F'|' '$2~/^h/' $mangas | wc -l)
 }
 
 edit_manga(){
