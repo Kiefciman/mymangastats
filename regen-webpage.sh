@@ -19,10 +19,6 @@ echo '<div class = "finished">' >> index.html
 echo '<h2>Finished</h2>' >> index.html
 awk -F'|' '$2~/^f/' manga.txt | awk -F'|' '{print "<div class = \"manga\"><h3>"$1"</h3>"$3"/"$4" "$5"★ </div>"}' >> index.html
 echo '</div>' >> index.html
-echo '<div class = "plan_to_read">' >> index.html
-echo '<h2>Plan to read</h2>' >> index.html
-awk -F'|' '$2~/^p/' manga.txt | awk -F'|' '{print "<div class = \"manga\"><h3>"$1"</h3>"$3"/"$4" "$5"★ </div>"}' >> index.html
-echo '</div>' >> index.html
 echo '<div class = "dropped">' >> index.html
 echo '<h2>Dropped</h2>' >> index.html
 awk -F'|' '$2~/^d/' manga.txt | awk -F'|' '{print "<div class = \"manga\"><h3>"$1"</h3>"$3"/"$4" "$5"★ </div>"}' >> index.html
@@ -30,6 +26,10 @@ echo '</div>' >> index.html
 echo '<div class = "on_hold">' >> index.html
 echo '<h2>On hold</h2>' >> index.html
 awk -F'|' '$2~/^h/' manga.txt | awk -F'|' '{print "<div class = \"manga\"><h3>"$1"</h3>"$3"/"$4" "$5"★ </div>"}' >> index.html
+echo '</div>' >> index.html
+echo '<div class = "plan_to_read">' >> index.html
+echo '<h2>Plan to read</h2>' >> index.html
+awk -F'|' '$2~/^p/' manga.txt | awk -F'|' '{print "<div class = \"manga\"><h3>"$1"</h3>"$3"/"$4" "$5"★ </div>"}' >> index.html
 echo '</div>' >> index.html
 echo '</div>' >> index.html
 echo '</body>' >> index.html
